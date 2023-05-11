@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+ --box-shadow: box-shadow: 0px 16px 30px -10px #4660bb33;
+ /* backgrounds */
+ --off-white-bg: #fefefe;
+ --light-gray-bg: #f6f8ff;
+ --light-gray-bg2: #eef3fa;
+
+  /* colors:  */
+  --dark-blue: #1e2a47;
+ --gray: #697c9a;
+ --blue-gray: #4b6a9b;
+ --blue: #0079ff;
+}
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
+  /* overflow: hidden; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: var(--light-gray-bg);
+  color: #141d2f; 
+  /* color: var(--gray);  */
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  width: 34rem;
+  background-color: var(--off-white-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0px 16px 30px -10px #4660bb33;
+  padding: 2.4rem;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Header */
+
+h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 3rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* GLOBAL */
+
+h2 {
+  font-size: 1.6rem;
+  /* letter-spacing: 1px; */
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gray);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+/* Balance */
+
+.balance {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+/* IncomeExpenses */
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #697c9a;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #697c9a;
+}
+
+.money {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin: 0.5rem 0;
+}
+
+.money.plus {
+  color: #2ecc71;
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+/* AddTransactionForm */
+
+label {
+  display: inline-block;
+  margin: 0.8rem 0 0.4rem;
+  /* font-size: 1.6rem; */
+}
+
+input[type='text'],
+input[type='number'] {
+  /* display: block; */
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  background: var(--light-gray-bg);
+  color: inherit;
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+input::placeholder{
+  color: var(--gray);
+}
+
+.btn {
+  /* display: block; */
+  width: 100%;
+  cursor: pointer;
+  background-color: var(--blue);
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  margin: 1.4rem 0;
+  padding: 1rem;
+}
+
+.btn:hover,
+.delete-btn:hover {
+  background-color: #1855f0;
+}
+
+/* TransactionList */
+
+.list {
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+    /* background-color: var(--off-white-bg); */
+  /* border-radius: 5px; */
+
+  padding: 1rem;
+  margin: 0rem 1rem;
+  position: relative;
+}
+
+.list li.plus {
+  border-bottom: 2px solid #2ecc71;
+}
+
+.list li.minus {
+  border-bottom: 2px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  border-radius: 0.4rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: 0.2rem 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 0rem;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 1px solid #697c9a;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px;
   }
 }
