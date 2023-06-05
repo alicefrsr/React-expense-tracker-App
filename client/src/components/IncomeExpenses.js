@@ -1,11 +1,11 @@
-import { GlobalContext } from '../contexts/GlobalState';
+import { GlobalContext } from '../context/GlobalState';
 import { useContext } from 'react';
 
 const IncomeExpenses = () => {
   const { transactions } = useContext(GlobalContext);
   console.log(transactions);
 
-  //make an array of all the amounts
+  // make an array of all the amounts
   const amounts = transactions.map(t => t.amount);
 
   // make an array of all the expenses, filter only neg values, add them up
@@ -27,7 +27,7 @@ const IncomeExpenses = () => {
         <p className='money plus'>€ {totalInc}</p>
       </div>
       <div>
-        <h3>Expense</h3>
+        <h3>Expenses</h3>
         <p className='money minus'>€ {totalExp}</p>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import { GlobalContext } from '../contexts/GlobalState';
+import { GlobalContext } from '../context/GlobalState';
 import { useContext } from 'react';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 import { useState } from 'react';
 
@@ -31,11 +31,11 @@ const AddTransactionForm = ({ onAdd }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (formData.desc !== '' && formData.amount !== '') {
-      // const newTransaction = { id: uuid(), desc: desc, amount: Number(amount) };
-      // const newTransaction = { id: uuid(), desc: desc, amount: parseInt(amount) };
-      const newTransaction = { id: uuid(), desc: formData.desc, amount: +formData.amount };
+      // const newTransaction = { id: uuid(), desc: formData.desc, amount: parseFloat(formData.amount) };
+      const newTransaction = { desc: formData.desc, amount: parseFloat(formData.amount).toFixed(2) };
       addTransaction(newTransaction);
     }
+    e.target.reset();
   };
   return (
     <>
@@ -60,7 +60,7 @@ const AddTransactionForm = ({ onAdd }) => {
           </label>
           <input
             id='amount'
-            type='number'
+            type='text'
             name='amount'
             // value={amount}
             // onChange={e => setAmount(e.target.value)}
