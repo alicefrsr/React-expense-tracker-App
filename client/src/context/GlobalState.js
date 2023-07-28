@@ -4,13 +4,7 @@ import axios from 'axios';
 
 // initial state
 const initialState = {
-  transactions: [
-    // { id: 1, desc: 'Petrol', amount: -42.74 },
-    // { id: 2, desc: 'Salary', amount: 2200 },
-    // { id: 3, desc: 'Amazon refund', amount: 48.99 },
-    // { id: 4, desc: 'VPN Subscription', amount: -29.99 },
-    // { id: 5, desc: 'Phone bill', amount: -19.99 },
-  ],
+  transactions: [],
   error: null,
   loading: true,
 };
@@ -25,7 +19,6 @@ export const GlobalProvider = ({ children }) => {
 
   // Actions
   // fetching data from our backend
-  // const PORT = process.env.SERVER_PORT || 5000;
   async function getTransactions() {
     try {
       const res = await axios.get('/api/v1/transactions'); // using proxy set to http://localhost:5000
@@ -37,7 +30,7 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  // deleteing data from our backend
+  // deleting data from our backend
   async function deleteTransaction(id) {
     try {
       await axios.delete(`/api/v1/transactions/${id}`);

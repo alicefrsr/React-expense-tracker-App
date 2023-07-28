@@ -5,16 +5,15 @@ const IncomeExpenses = () => {
   const { transactions } = useContext(GlobalContext);
   console.log(transactions);
 
-  // make an array of all the amounts
   const amounts = transactions.map(t => t.amount);
 
-  // make an array of all the expenses, filter only neg values, add them up
+  // make an array of all the expensesfilter only neg values, add them up
   const totalExp = amounts
     .filter(exp => exp < 0)
     .reduce((total, amount) => total + amount, 0)
     .toFixed(2);
 
-  // make an array of all the income, filter only pos values, add them up
+  // smae with income
   const totalInc = amounts
     .filter(exp => exp > 0)
     .reduce((total, amount) => total + amount, 0)
