@@ -18,4 +18,4 @@ const transactionSchema = new mongoose.Schema({
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
-module.exports = Transaction; // to bring it in the controller
+module.exports = Transaction; // to use in the controller

@@ -28,7 +28,7 @@ export const GlobalProvider = ({ children }) => {
   // const PORT = process.env.SERVER_PORT || 5000;
   async function getTransactions() {
     try {
-      const res = await axios.get(`/api/v1/transactions`); // using proxy set to http://localhost:5000
+      const res = await axios.get('/api/v1/transactions'); // using proxy set to http://localhost:5000
       // transactions are in res.data.data;
       dispatch({ type: 'GET_TRANSACTIONS', payload: res.data.data });
     } catch (err) {

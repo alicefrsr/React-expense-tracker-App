@@ -16,7 +16,7 @@ const TransactionList = () => {
   return (
     <>
       <h2>History</h2>
-      <h3>(Total: {transactions.length} transactions)</h3>
+      <h3>{transactions.length ? `(Total: ${transactions.length} transactions)` : '(No transactions)'}</h3>
       <ul className='list'>
         {transactions.map(transaction => (
           <Transaction

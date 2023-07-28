@@ -10,7 +10,8 @@ const connectDB = async () => {
       // useCreateIndex: true, // error: option not supported
       useUnifiedTopology: true,
     });
-    console.log(`DB connection successful on ${conn.connection.host}`.cyan.bold);
+    console.log(`DB connection successful on host:${conn.connection.host}`.cyan.bold);
+    console.log(`DB name: ${conn.connection.name}`.green.bold);
   } catch (err) {
     console.log(`Error: ${err.message}`.red);
     console.log('shutting down');

@@ -26,11 +26,10 @@ app.use(cors(corsOptions));
 //   next();
 // });
 
-// we need a middleware so our app understands json:
-// (allows us to use the body parser in controllers (req.body/query.xxx)
+// (middleware which allows us to use the body parser in controllers (req.body/query.xxx)
 app.use(express.json());
 // alternatively we can use form with this middleware
-// app.use(express.urlencoded({extended: false}));// (check)
+// app.use(express.urlencoded({extended: false}));//
 
 // morgan
 if (process.env.NODE_ENV === 'development') {
